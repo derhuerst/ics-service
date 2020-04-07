@@ -1,0 +1,26 @@
+{
+	"name": "ics-service",
+	"description": "Create a calendar feed people an subscribe to.",
+	"version": "1.0.0",
+	"main": "index.js",
+	"files": [
+		"index.js",
+		"example.js"
+	],
+	"keywords": [
+		"ics",
+		"calendar",
+		"ical",
+		"subscription"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/ics-service",
+	"repository": "derhuerst/ics-service",
+	"bugs": "https://github.com/derhuerst/ics-service/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=10"
+	},
+	"dependencies": {
+	}
+}
