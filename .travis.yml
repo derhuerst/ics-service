@@ -4,6 +4,9 @@ node_js:
   - node
   - 'lts/*'
   - '10'
+script:
+  - 'node example.js &'
+  - 'curl "http://localhost:3000/feed"'
 cache: npm
 notifications:
   email:

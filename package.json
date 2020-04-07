@@ -27,5 +27,8 @@
 	"dependencies": {
 		"escape-goat": "^3.0.0",
 		"ics": "^2.19.0"
+	},
+	"devDependencies": {
+		"connect": "^3.7.0"
 	}
 }

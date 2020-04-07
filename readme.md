@@ -20,7 +20,39 @@ npm install ics-service
 ## Usage
 
 ```js
-todo
+const express = require('express')
+const generateIcs = require('ics-service/generate-ics')
+const aboutRoute = require('ics-service/about')
+const feedRoute = require('ics-service/feed')
+
+const title = 'some calendar feed'
+const productId = 'my feed generator'
+const events = [{
+	uid: 'a', title: 'A', description: 'A.',
+	location: 'Alamo Square, San Francisco, CA',
+	url: 'https://example.org/',
+	geo: {lat: 37.774703, lon: -122.432642, radius: 20},
+	categories: ['event'],
+	start: ['2020', '08', '08', '08', '08'],
+	duration: {hours: 1, minutes: 30},
+	status: 'CONFIRMED',
+	sequence: 1,
+	productId,
+}, {
+	uid: 'b',
+	title: 'B', description: 'B.',
+	start: ['2020', '09', '09', '09', '09'],
+	duration: {hours: 0, minutes: 45},
+	status: 'CONFIRMED',
+	sequence: 2,
+	productId,
+}]
+
+const getIcs = feedUrl => generateIcs(TITLE, events, feedUrl)
+
+const app = express()
+app.use('/feed', feedRoute(getIcs))
+app.use('/', aboutRoute(TITLE))
 ```
 
 
