@@ -5,6 +5,9 @@
 	"main": "index.js",
 	"files": [
 		"index.js",
+		"about.js",
+		"feed.js",
+		"generate-ics.js",
 		"example.js"
 	],
 	"keywords": [
@@ -22,5 +25,7 @@
 		"node": ">=10"
 	},
 	"dependencies": {
+		"escape-goat": "^3.0.0",
+		"ics": "^2.19.0"
 	}
 }
