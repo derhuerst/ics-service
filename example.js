@@ -45,4 +45,8 @@ const app = connect()
 app.use('/feed', feedRoute(getIcs))
 app.use('/', aboutRoute(TITLE))
 
-createServer(app).listen(3000)
+createServer(app).listen(3000, (err) => {
+	if (!err) return;
+	console.error(err)
+	process.exit(1)
+})
