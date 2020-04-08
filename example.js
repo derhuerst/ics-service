@@ -39,7 +39,7 @@ const events = [{
 	productId,
 }]
 
-const getIcs = feedUrl => generateIcs(TITLE, events, feedUrl)
+const getIcs = async feedUrl => generateIcs(TITLE, events, feedUrl)
 
 const app = connect()
 app.use('/feed', feedRoute(getIcs))
