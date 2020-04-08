@@ -1,6 +1,6 @@
 # ics-service
 
-**Create a calendar feed people an subscribe to.**
+**Create a calendar feed people can subscribe to.**
 
 [![npm version](https://img.shields.io/npm/v/ics-service.svg)](https://www.npmjs.com/package/ics-service)
 [![build status](https://api.travis-ci.org/derhuerst/ics-service.svg?branch=master)](https://travis-ci.org/derhuerst/ics-service)
