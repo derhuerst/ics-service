@@ -7,8 +7,8 @@ const aboutRoute = require('./about')
 const feedRoute = require('./feed')
 
 const TITLE = 'some calendar feed'
+const GENERATOR = 'https://github.com/derhuerst/ics-service'
 
-const productId = 'https://github.com/derhuerst/ics-service'
 const events = [{
 	uid: 'a',
 	title: 'Event A', description: 'This is A.',
@@ -22,7 +22,7 @@ const events = [{
 	duration: {hours: 1, minutes: 30},
 	status: 'CONFIRMED',
 	sequence: 1,
-	productId,
+	productId: GENERATOR,
 }, {
 	uid: 'b',
 	title: 'Event B', description: 'This is B.',
@@ -36,7 +36,7 @@ const events = [{
 	duration: {hours: 0, minutes: 45},
 	status: 'CONFIRMED',
 	sequence: 2,
-	productId,
+	productId: GENERATOR,
 }]
 
 const getIcs = async feedUrl => generateIcs(TITLE, events, feedUrl)

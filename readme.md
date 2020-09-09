@@ -25,8 +25,9 @@ const generateIcs = require('ics-service/generate-ics')
 const aboutRoute = require('ics-service/about')
 const feedRoute = require('ics-service/feed')
 
-const title = 'some calendar feed'
-const productId = 'my feed generator'
+const TITLE = 'some calendar feed'
+const GENERATOR = 'my feed generator'
+
 const events = [{
 	uid: 'a', title: 'A', description: 'A.',
 	location: 'Alamo Square, San Francisco, CA',
@@ -37,7 +38,7 @@ const events = [{
 	duration: {hours: 1, minutes: 30},
 	status: 'CONFIRMED',
 	sequence: 1,
-	productId,
+	productId: GENERATOR,
 }, {
 	uid: 'b',
 	title: 'B', description: 'B.',
@@ -45,7 +46,7 @@ const events = [{
 	duration: {hours: 0, minutes: 45},
 	status: 'CONFIRMED',
 	sequence: 2,
-	productId,
+	productId: GENERATOR,
 }]
 
 const getIcs = feedUrl => generateIcs(TITLE, events, feedUrl)
