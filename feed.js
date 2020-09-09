@@ -17,7 +17,7 @@ const createFeedRoute = (getIcs) => {
 		}
 
 		try {
-			Promise.resolve(getIcs(feedUrl(req)))
+			Promise.resolve(getIcs(feedUrl(req), req))
 			.then((ics) => {
 				res.writeHead(200, 'ok', {'content-type': 'text/calendar'})
 				res.end(ics)
