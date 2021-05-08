@@ -60,8 +60,6 @@ const generateIcs = (title, rawEvents, feedUrl = null) => {
 	})
 	let {error, value: ics} = formatEvents(events)
 	if (error) throw error
-	
-	let ics = '';
 
 	// per event, insert Apple-specific location markup
 	for (const ev of rawEvents) {
@@ -82,7 +80,7 @@ const generateIcs = (title, rawEvents, feedUrl = null) => {
 	// add feed metadata
 	// todo: this is really brittle, make it more robust
 	const methodPublish = `\r\nMETHOD:PUBLISH\r\n`
-	const markerI = ics.indexOf(methodPublish)
+	const markerI = ics||''.indexOf(methodPublish)
 	if (markerI >= 0) {
 		const endI = markerI + methodPublish.length
 		ics = [
