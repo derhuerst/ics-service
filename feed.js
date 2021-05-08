@@ -1,6 +1,6 @@
 'use strict'
 
-const URL = require('url');
+const { URL } = require('url');
 
 const feedUrl = (req) => {
 	const url = new URL(req.url, 'http://' + req.headers.host)
