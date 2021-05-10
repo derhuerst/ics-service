@@ -58,7 +58,8 @@ const generateIcs = (title, rawEvents, feedUrl = null) => {
 		}
 		return ev
 	})
-	let {error, value: ics} = formatEvents(events)
+	let {error, value: ics} = formatEvents([])
+	ics = ics || ''
 	if (error) throw error
 
 	// per event, insert Apple-specific location markup
