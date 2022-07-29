@@ -16,7 +16,7 @@ const events = [{
 	url: 'https://example.org/',
 	geo: {lat: 37.774703, lon: -122.432642, radius: 20},
 	categories: ['event'],
-	start: ['2020', '08', '08', '08', '08'],
+	start: [2020, 8, 8, 8, 8],
 	// todo: `tzid: 'America/Los_Angeles'`
 	startOutputType: 'local',
 	duration: {hours: 1, minutes: 30},
@@ -30,7 +30,7 @@ const events = [{
 	url: 'https://example.com/',
 	geo: {lat: 37.760728, lon: -122.434741, radius: 30},
 	categories: ['event'],
-	start: ['2020', '09', '09', '09', '09'],
+	start: [2020, 9, 9, 9, 9],
 	// todo: `tzid: 'America/Los_Angeles'`
 	startOutputType: 'local',
 	duration: {hours: 0, minutes: 45},

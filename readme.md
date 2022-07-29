@@ -34,7 +34,7 @@ const events = [{
 	url: 'https://example.org/',
 	geo: {lat: 37.774703, lon: -122.432642, radius: 20},
 	categories: ['event'],
-	start: ['2020', '08', '08', '08', '08'],
+	start: [2020, 8, 8, 8, 8],
 	duration: {hours: 1, minutes: 30},
 	status: 'CONFIRMED',
 	sequence: 1,
@@ -42,7 +42,7 @@ const events = [{
 }, {
 	uid: 'b',
 	title: 'B', description: 'B.',
-	start: ['2020', '09', '09', '09', '09'],
+	start: [2020, 9, 9, 9, 9],
 	duration: {hours: 0, minutes: 45},
 	status: 'CONFIRMED',
 	sequence: 2,
