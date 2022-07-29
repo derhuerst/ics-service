@@ -58,7 +58,7 @@ const generateIcs = (title, rawEvents, feedUrl = null) => {
 		}
 		return ev
 	})
-	let {error, value: ics} = formatEvents([])
+	let {error, value: ics} = formatEvents(events)
 	ics = ics || ''
 	if (error) throw error
 
