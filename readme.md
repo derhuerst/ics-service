@@ -3,7 +3,6 @@
 **Create a calendar feed people can subscribe to.**
 
 [![npm version](https://img.shields.io/npm/v/ics-service.svg)](https://www.npmjs.com/package/ics-service)
-[![build status](https://api.travis-ci.org/derhuerst/ics-service.svg?branch=master)](https://travis-ci.org/derhuerst/ics-service)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/ics-service.svg)
 ![minimum Node.js version](https://img.shields.io/node/v/ics-service.svg)
 [![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)

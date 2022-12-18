@@ -1,7 +1,7 @@
 {
 	"name": "ics-service",
 	"description": "Create a calendar feed people can subscribe to.",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"main": "index.js",
 	"files": [
 		"index.js",
