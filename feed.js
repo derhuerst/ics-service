@@ -11,8 +11,10 @@ const createFeedRoute = (getIcs) => {
 		const handleError = (err) => {
 			console.error(err)
 			if (!res.headersSent) {
-				res.writeHead(500, 'error')
-				res.end(err + '')
+				res.writeHead(500, {
+					'content-type': 'application/json',
+				})
+				res.end(JSON.stringify(err, null, '\t'))
 			}
 		}
 
