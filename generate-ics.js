@@ -56,9 +56,6 @@ const generateIcs = (title, rawEvents, feedUrl = null) => {
 		if (ev.location) {
 			ev.location = ev.location.replace(/,/g, '\\,')
 		}
-
-		ev.calName = title
-		
 		return ev
 	})
 	let {error, value: ics} = formatEvents(events)
@@ -89,6 +86,7 @@ const generateIcs = (title, rawEvents, feedUrl = null) => {
 		const endI = markerI + methodPublish.length
 		ics = [
 			ics.slice(0, endI),
+			`X-WR-CALNAME:${title}\r\n`,
 			feedUrl ? `X-ORIGINAL-URL:${feedUrl}\r\n` : '',
 			ics.slice(endI),
 		].join('')
