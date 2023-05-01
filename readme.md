@@ -55,6 +55,8 @@ app.use('/feed', feedRoute(getIcs))
 app.use('/', aboutRoute(TITLE))
 ```
 
+The `events` array is passed into [`ics@3`](https://github.com/adamgibbons/ics/tree/v3.0.0) almost unaltered, so check [`ics`'s docs](https://github.com/adamgibbons/ics/blob/v3.0.0/README.md) for more information on the format.
+
 
 ## Contributing
 
