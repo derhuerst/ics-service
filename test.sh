@@ -2,6 +2,7 @@
 
 set -e
 set -x
+set -o pipefail
 
 # start server
 node example.js &
@@ -12,7 +13,7 @@ sleep 1
 trap 'exit_code=$?; kill -- $(jobs -p); exit $exit_code' SIGINT SIGTERM EXIT
 
 # fetch feed
-curl 'http://localhost:3000/feed' -sS | grep -m1 'DTSTART:20200808T080800'
+curl 'http://localhost:3000/feed' -fsS | grep -m1 'DTSTART:20200808T080800'
 code=$?
 
 exit $code

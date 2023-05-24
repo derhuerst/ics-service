@@ -21,9 +21,13 @@ const createFeedRoute = (getIcs) => {
 		try {
 			Promise.resolve(getIcs(feedUrl(req), req))
 			.then((ics) => {
-				// iCalendar files typically have […] a MIME type of "text/calendar".
-				// https://icalendar.org
-				res.writeHead(200, 'ok', {'content-type': 'text/calendar'})
+				const headers = {
+					// iCalendar files typically have […] a MIME type of "text/calendar".
+					// https://icalendar.org
+					'content-type': 'text/calendar',
+				}
+
+				res.writeHead(200, 'ok', headers)
 				res.end(ics)
 			})
 			.catch(handleError)
