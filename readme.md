@@ -57,6 +57,20 @@ app.use('/', aboutRoute(TITLE))
 
 The `events` array is passed into [`ics@3`](https://github.com/adamgibbons/ics/tree/v3.0.0) almost unaltered, so check [`ics`'s docs](https://github.com/adamgibbons/ics/blob/v3.0.0/README.md) for more information on the format.
 
+Optionally, you can pass an options object into `generateIcs`, whose fields selectively override the following defaults:
+
+```js
+{
+	// Send a Cache-Control header to let clients and/or shared caches (a.k.a. CDNS)
+	// cache the calendar feed. If you set this option to false, it won't be sent.
+	// see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+	cacheControl: true,
+	// The number of seconds that a the calendar-feed is allowed to be cached.
+	// Note: With ics-service's next major version dump, this will be increased.
+	maxAge: 0,
+}
+```
+
 
 ## Contributing
 
