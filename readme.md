@@ -68,6 +68,9 @@ Optionally, you can pass an options object into `generateIcs`, whose fields sele
 	// The number of seconds that a the calendar-feed is allowed to be cached.
 	// Note: With ics-service's next major version dump, this will be increased.
 	maxAge: 0,
+	// Send an ETag header, so that clients don't have to redownload the calendar feed.
+	// see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag
+	etag: true,
 }
 ```
 

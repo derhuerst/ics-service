@@ -1,19 +1,35 @@
 'use strict'
 
+const computeEtag = require('etag')
+
 const feedUrl = (req) => {
 	const url = new URL(req.url, 'http://' + req.headers.host)
 	url.search = ''
 	return url.href
 }
 
+const memoize1Shallow = (fn) => {
+	let prevArg = null
+	let prevResult = null
+	const memoizedFn = (arg) => {
+		if (arg === prevArg) return prevResult
+		prevResult = fn(arg)
+		prevArg = arg
+		return prevResult
+	}
+	return memoizedFn
+}
+
 const createFeedRoute = (getIcs, opt = {}) => {
 	const {
 		cacheControl,
 		maxAge,
+		etag: sendEtag,
 	} = {
 		cacheControl: true,
 		// todo [breaking]: increase to e.g. 5m
 		maxAge: 0, // in seconds
+		etag: true,
 		...opt,
 	}
 	if ('boolean' !== typeof cacheControl) {
@@ -22,6 +38,11 @@ const createFeedRoute = (getIcs, opt = {}) => {
 	if (!Number.isInteger(maxAge)) {
 		throw new Error('opt.maxAge must be a integer')
 	}
+	if ('boolean' !== typeof sendEtag) {
+		throw new Error('opt.etag must be a boolean')
+	}
+
+	const memoizedComputeEtag = memoize1Shallow(computeEtag)
 
 	const feedRoute = (req, res) => {
 		const handleError = (err) => {
@@ -45,6 +66,9 @@ const createFeedRoute = (getIcs, opt = {}) => {
 
 				if (cacheControl) {
 					headers['Cache-Control'] = `public,max-age=${maxAge}`
+				}
+				if (sendEtag) {
+					headers['ETag'] = memoizedComputeEtag(ics)
 				}
 
 				res.writeHead(200, 'ok', headers)
